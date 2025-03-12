@@ -1,11 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculador de Envíos</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="container">
+        <h2>Calculador de Costo de Envío</h2>
+        <form action="procesar.php" method="post">
+            <label>Nombre del Cliente:</label>
+            <input type="text" name="nombre" required>
+
+            <label>Dirección de Destino:</label>
+            <input type="text" name="direccion" required>
+
+            <label>Ciudad de Destino:</label>
+            <input type="text" name="ciudad" required>
+
+            <label>Peso del Paquete (kg):</label>
+            <input type="number" name="peso" step="0.01" required>
+
+            <label>Tipo de Servicio:</label> 
+            <select name="servicio" required>
+                <option value="economico">Económico</option>
+                <option value="estandar">Estándar</option>
+                <option value="express">Express</option>
+                <option value="prioritario">Prioritario</option>
+                <option value="internacional">Internacional</option>
+            </select>
+
+            <label>Valor Declarado ($):</label>
+            <input type="number" name="valor_declarado" step="0.01" required>
+
+            <button type="submit">Calcular Costo</button>
+        </form>
+    </div>
 </body>
 </html>
+ 
