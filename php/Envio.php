@@ -15,7 +15,6 @@ class Envio {
         $this->valorDeclarado = $valorDeclarado;
     }
 
-    // Calcular el costo base según el peso
     private function calcularCostoBase() {
         if ($this->peso < 1) {
             $this->costoBase = 5000;
@@ -28,7 +27,6 @@ class Envio {
         }
     }
 
-    // Calcular el recargo según el tipo de servicio
     private function calcularRecargoServicio() {
         switch ($this->servicio) {
             case 'economico':
@@ -51,7 +49,6 @@ class Envio {
         }
     }
 
-    // Calcular seguro de envío si el valor declarado supera $100,000
     private function calcularSeguro() {
         if ($this->valorDeclarado > 100000) {
             $this->seguro = $this->valorDeclarado * 0.05;
@@ -60,13 +57,11 @@ class Envio {
         }
     }
 
-    // Calcular el IVA sobre el subtotal
     private function calcularIVA() {
         $subtotal = $this->costoBase + $this->recargoServicio + $this->seguro;
         $this->iva = $subtotal * 0.19;
     }
 
-    // Calcular el costo total del envío
     public function calcularCostoTotal() {
         $this->calcularCostoBase();
         $this->calcularRecargoServicio();
@@ -77,7 +72,6 @@ class Envio {
         return $this->total;
     }
 
-    // Obtener detalles del cálculo
     public function obtenerDetalles() {
         return [
             "Costo Base" => $this->costoBase,
